@@ -9,21 +9,23 @@ import matplotlib.pyplot as plt
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
-    render_template('<html><h1>実行結果</h1><p><p><img src="/graph1.png" ></img></html>')
+    return('<html><h1>実行結果</h1><p><p><img src="/graph1.png" ></img></html>')
+
 
 @app.route('/graph1.png')
 def graph1():
-    # データからグラフをプロットする 
-　　x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    # データからグラフをプロットする
+    x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     y = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     fig = plt.figure()
     ax = fig.add_subplot(111)
     plt.title('サンプル')
     plt.grid(which='both')
     plt.legend()
-    plt.plot(x,y)
+    plt.plot(x, y)
     # canvasにプロットした画像を出力
     canvas = FigureCanvasAgg(fig)
     png_output = BytesIO()
