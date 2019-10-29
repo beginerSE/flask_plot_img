@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    render_template('index_html')
+    render_template('<html><h1>実行結果</h1><p><p><img src="/graph1.png" ></img></html>')
 
 @app.route('/graph1.png')
 def graph1():
